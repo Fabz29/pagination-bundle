@@ -1,0 +1,21 @@
+{% if nb_pages > 0 %}
+    <div class="btn-toolbar" role="toolbar">
+        <div class="btn-group mr-2" role="group" aria-label="{{ 'button.first_group'|trans({},'button') }}">
+            {% if num_page > 1 %}
+                <button  onclick="pagination('{{ path(route.name, route.params|merge({'page' : num_page - 1 })) }}', '#{{ target ? target : route.name }}', '{{ route.params_json }}')" type="button" class="btn waves-effect waves-light">
+                    <i class="fas fa-caret-left" aria-hidden="true"></i>
+                </button>
+            {% endif %}
+            {% for p in range(max(num_page - 4, 1), min(num_page + 4, nb_pages)) %}
+                <button onclick="pagination('{{ path(route.name, route.params|merge({'page' : p })) }}', '#{{ target ? target : route.name }}', '{{ route.params_json }}')" type="button" class="btn waves-effect waves-light {{ num_page == p ? 'btn-primary' }}">
+                    {{ p }}
+                </button>
+            {% endfor %}
+            {% if num_page < nb_pages %}
+                <button onclick="pagination('{{ path(route.name, route.params|merge({'page' : num_page + 1 })) }}', '#{{ target ? target : route.name }}', '{{ route.params_json }}')" type="button" class="btn waves-effect waves-light">
+                    <i class="fas fa-caret-right" aria-hidden="true"></i>
+                </button>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

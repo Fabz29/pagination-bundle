@@ -1,0 +1,40 @@
+{
+  "name": "fabz29/pagination-bundle",
+  "type": "symfony-bundle",
+  "description": "Fabz29PaginationBundle is a Symfony Bundle created to facilitate the management of pagination in your project.",
+  "keywords": [
+    "Fabz29 pagination"
+  ],
+  "require": {
+    "php": ">=7.1",
+    "symfony/framework-bundle": "^3.0|^4.0",
+    "twig/twig": "^2.0",
+    "doctrine/orm": "^2.6"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "7.*"
+  },
+  "suggest": {
+    "twig/twig": "to render pagination with a twig template"
+  },
+  "license": "MIT",
+  "author": [
+    {
+      "name": "Fabien Zanetti",
+      "email": "fabienzanetti57@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Fabz29\\BreadcrumbBundle\\": ""
+    },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Fabz29\\PaginationBundle\\Tests\\": "/Tests/"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+services:
+
+    fabz29_pagination.pagination.service:
+        public: true
+        class: Fabz29\PaginationBundle\Service\BreadcrumbManager
+        arguments: ['@twig', '%fabz29_pagination%']
+
+    Fabz29\PaginationBundle\Service\Pagination: '@fabz29_pagination.pagination.service'
+
+    fabz29_pagination.twig:
+        class: Fabz29\PaginationBundle\Twig\PaginationExtension
+        public: true
+        arguments: ['@fabz29_pagination.pagination.service']
+        tags:
+            name: twig.extension
